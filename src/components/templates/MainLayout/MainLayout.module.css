@@ -2,6 +2,23 @@
   display: flex;
   flex-direction: column;
   height: 100svh;
+  /* Adopt this subject's accent pair (set as --subject-light/-dark inline by
+     MainLayout) in place of the app-wide default teal accent. Falls back to
+     the inherited --accent/--accent-strong when no subject theme is set. */
+  --accent: var(--subject-light, var(--accent));
+  --accent-strong: var(--subject-light-strong, var(--accent-strong));
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .shell {
+    --accent: var(--subject-dark, var(--accent));
+    --accent-strong: var(--subject-dark-strong, var(--accent-strong));
+  }
+}
+
+:root[data-theme="dark"] .shell {
+  --accent: var(--subject-dark, var(--accent));
+  --accent-strong: var(--subject-dark-strong, var(--accent-strong));
 }
 
 .body {

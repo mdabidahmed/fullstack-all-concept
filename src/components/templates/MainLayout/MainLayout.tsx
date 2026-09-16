@@ -6,6 +6,7 @@ import { CommandPalette } from "../../organisms/CommandPalette/CommandPalette";
 import { ProgressProvider } from "../../organisms/ProgressProvider/ProgressProvider";
 import { useTheme } from "../../../hooks/useTheme";
 import { useLocalStorage } from "../../../hooks/useLocalStorage";
+import { subjectAccentVars } from "../../../data/subjectTheme";
 import styles from "./MainLayout.module.css";
 
 export function MainLayout() {
@@ -38,7 +39,7 @@ export function MainLayout() {
 
   return (
     <ProgressProvider subject={subject}>
-      <div className={styles.shell}>
+      <div className={styles.shell} style={subjectAccentVars(subject)}>
         <a href="#main-content" className="skip-link">
           Skip to content
         </a>

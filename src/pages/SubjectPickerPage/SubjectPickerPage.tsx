@@ -1,7 +1,7 @@
-import type { CSSProperties } from "react";
 import { Link } from "react-router-dom";
 import { subjects, getTopicsForSubject } from "../../data/subjects";
-import { SubjectIcon, subjectAccentColor } from "../../components/atoms/SubjectIcon/SubjectIcon";
+import { SubjectIcon } from "../../components/atoms/SubjectIcon/SubjectIcon";
+import { subjectAccentVars } from "../../data/subjectTheme";
 import { readStorage } from "../../utils/storage";
 import styles from "./SubjectPickerPage.module.css";
 
@@ -24,15 +24,11 @@ export function SubjectPickerPage() {
             ? 0
             : readStorage<string[]>(`rac:completed-topics:${subject.id}`, []).length;
           const percent = topicCount === 0 ? 0 : Math.round((completedCount / topicCount) * 100);
-          const accentColor = subjectAccentColor[subject.id];
 
           const card = (
             <>
               <div className={styles.cardTop}>
-                <span
-                  className={styles.iconChip}
-                  style={{ "--subject-accent": accentColor } as CSSProperties}
-                >
+                <span className={styles.iconChip}>
                   <SubjectIcon subjectId={subject.id} />
                 </span>
                 {subject.comingSoon && <span className={styles.badge}>Coming soon</span>}
@@ -44,7 +40,7 @@ export function SubjectPickerPage() {
                 <div className={styles.statsRow}>
                   <span className={styles.cardMeta}>{topicCount} topics</span>
                   {completedCount > 0 && (
-                    <span className={styles.percentChip} style={{ "--subject-accent": accentColor } as CSSProperties}>
+                    <span className={styles.percentChip}>
                       {completedCount}/{topicCount} · {percent}%
                     </span>
                   )}
@@ -61,16 +57,15 @@ export function SubjectPickerPage() {
           );
 
           return subject.comingSoon ? (
-            <div key={subject.id} className={[styles.card, styles.cardDisabled].join(" ")}>
+            <div
+              key={subject.id}
+              className={[styles.card, styles.cardDisabled].join(" ")}
+              style={subjectAccentVars(subject.id)}
+            >
               {card}
             </div>
           ) : (
-            <Link
-              key={subject.id}
-              to={`/${subject.id}`}
-              className={styles.card}
-              style={{ "--subject-accent": accentColor } as CSSProperties}
-            >
+            <Link key={subject.id} to={`/${subject.id}`} className={styles.card} style={subjectAccentVars(subject.id)}>
               {card}
             </Link>
           );

@@ -66,6 +66,23 @@
   text-decoration: none;
   color: inherit;
   transition: border-color 150ms ease, transform 150ms var(--ease-out), box-shadow 150ms ease;
+  /* Resolve this card's subject accent (set as --subject-light/-dark inline)
+     to the pair matching the current app theme - same rule MainLayout uses
+     to theme a whole subject's pages. */
+  --subject-accent: var(--subject-light);
+  --subject-accent-strong: var(--subject-light-strong);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .card {
+    --subject-accent: var(--subject-dark);
+    --subject-accent-strong: var(--subject-dark-strong);
+  }
+}
+
+:root[data-theme="dark"] .card {
+  --subject-accent: var(--subject-dark);
+  --subject-accent-strong: var(--subject-dark-strong);
 }
 
 .card:hover {

@@ -1,16 +1,3 @@
-/** A brand-ish accent color per subject, used to tint its icon chip and card accent. */
-export const subjectAccentColor: Record<string, string> = {
-  react: "#22d3ee",
-  html: "#f97316",
-  css: "#3b82f6",
-  javascript: "#eab308",
-  typescript: "#3178c6",
-  nodejs: "#22c55e",
-  mongodb: "#10b981",
-  aws: "#ff9900",
-  azure: "#0078d4",
-};
-
 interface SubjectIconProps {
   subjectId: string;
 }
