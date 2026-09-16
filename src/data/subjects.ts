@@ -6,6 +6,7 @@ import { jsTopics } from "./topics-js";
 import { tsTopics } from "./topics-ts";
 import { nodeTopics } from "./topics-node";
 import { mongodbTopics } from "./topics-mongodb";
+import { awsTopics } from "./topics-aws";
 
 export interface SubjectMeta {
   id: string;
@@ -64,7 +65,6 @@ export const subjects: SubjectMeta[] = [
     name: "AWS",
     tagline: "Cloud infrastructure",
     description: "Core services for compute, storage, and deployment.",
-    comingSoon: true,
   },
 ];
 
@@ -76,6 +76,7 @@ export const topicsBySubject: Record<string, Topic[]> = {
   typescript: tsTopics,
   nodejs: nodeTopics,
   mongodb: mongodbTopics,
+  aws: awsTopics,
 };
 
 export function getSubjectById(id: string | undefined): SubjectMeta | undefined {

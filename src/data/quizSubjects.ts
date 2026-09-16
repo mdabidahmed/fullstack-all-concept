@@ -7,6 +7,7 @@ import { jsQuizCategoryMeta, jsQuizQuestionsByCategory } from "./quiz-js";
 import { tsQuizCategoryMeta, tsQuizQuestionsByCategory } from "./quiz-ts";
 import { nodeQuizCategoryMeta, nodeQuizQuestionsByCategory } from "./quiz-node";
 import { mongodbQuizCategoryMeta, mongodbQuizQuestionsByCategory } from "./quiz-mongodb";
+import { awsQuizCategoryMeta, awsQuizQuestionsByCategory } from "./quiz-aws";
 
 export const quizCategoryMetaBySubject: Record<string, QuizCategoryMeta[]> = {
   react: reactQuizCategoryMeta,
@@ -16,6 +17,7 @@ export const quizCategoryMetaBySubject: Record<string, QuizCategoryMeta[]> = {
   typescript: tsQuizCategoryMeta,
   nodejs: nodeQuizCategoryMeta,
   mongodb: mongodbQuizCategoryMeta,
+  aws: awsQuizCategoryMeta,
 };
 
 export const quizQuestionsBySubject: Record<string, Record<string, QuizQuestion[]>> = {
@@ -26,6 +28,7 @@ export const quizQuestionsBySubject: Record<string, Record<string, QuizQuestion[
   typescript: tsQuizQuestionsByCategory,
   nodejs: nodeQuizQuestionsByCategory,
   mongodb: mongodbQuizQuestionsByCategory,
+  aws: awsQuizQuestionsByCategory,
 };
 
 export function getQuizCategoriesForSubject(subjectId: string | undefined): QuizCategoryMeta[] {

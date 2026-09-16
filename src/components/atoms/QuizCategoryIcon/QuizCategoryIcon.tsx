@@ -433,6 +433,38 @@ export function QuizCategoryIcon({ categoryId }: QuizCategoryIconProps) {
           <path d="M19 12a7 7 0 0 0-.2-1.6l2-1.5-2-3.4-2.3.9a7 7 0 0 0-2.8-1.6L13.3 2h-2.6l-.4 2.8a7 7 0 0 0-2.8 1.6l-2.3-.9-2 3.4 2 1.5A7 7 0 0 0 5 12c0 .5 0 1.1.2 1.6l-2 1.5 2 3.4 2.3-.9a7 7 0 0 0 2.8 1.6l.4 2.8h2.6l.4-2.8a7 7 0 0 0 2.8-1.6l2.3.9 2-3.4-2-1.5c.1-.5.2-1.1.2-1.6Z" />
         </svg>
       );
+    case "aws-fundamentals":
+      return (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M4 15a4 4 0 0 1 1-7.9 5 5 0 0 1 9.8-1.7A4.5 4.5 0 0 1 19 14" />
+          <path d="M12 19v-6M9 15.5 12 13l3 2.5" />
+        </svg>
+      );
+    case "aws-compute":
+      return (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <rect x="4" y="4" width="16" height="16" rx="2" />
+          <path d="M9 9h6v6H9z" />
+          <path d="M9 2v2M15 2v2M9 20v2M15 20v2M2 9h2M2 15h2M20 9h2M20 15h2" />
+        </svg>
+      );
+    case "aws-storage-databases":
+      return (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <ellipse cx="12" cy="6" rx="8" ry="3" />
+          <path d="M4 6v12c0 1.66 3.58 3 8 3s8-1.34 8-3V6" />
+          <path d="M4 12c0 1.66 3.58 3 8 3s8-1.34 8-3" />
+        </svg>
+      );
+    case "aws-networking-deployment":
+      return (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <circle cx="6" cy="6" r="2.5" />
+          <circle cx="18" cy="6" r="2.5" />
+          <circle cx="12" cy="18" r="2.5" />
+          <path d="M8 7.5 11 16M16 7.5 13 16M8.5 6h7" />
+        </svg>
+      );
     default:
       return null;
   }
