@@ -15,17 +15,27 @@ interface SubjectAccentTheme {
  * dark-mode ones deliberately brightened) so index.css's existing white/dark
  * --accent-contrast text stays readable on top of them, the same tradeoff the
  * app's original single teal accent already made between its two themes.
+ *
+ * Hues are spread ~40-55° apart around the wheel (html 22°, aws 355°, js 48°,
+ * node 130°, mongodb 175°, react 197°, css 220°, azure 262°, typescript 308°)
+ * rather than clustering several subjects into "blue" (react/typescript/azure)
+ * or "green" (node/mongodb) the way the original picks did. Checked against
+ * the dataviz skill's CVD/normal-vision delta-E validator - true all-pairs
+ * separation isn't achievable at 9 simultaneous colors (the skill's own
+ * reference palette caps that guarantee at 3-4 slots), but this ordering
+ * clears contrast on both surfaces and keeps every pair well above the
+ * near-duplicate range the original blue/green clusters sat in.
  */
 const subjectThemes: Record<string, SubjectAccentTheme> = {
-  react: { light: "#078598", lightStrong: "#066c7b", dark: "#22d3ee", darkStrong: "#64e0f3" },
-  html: { light: "#9f4100", lightStrong: "#803500", dark: "#f97316", darkStrong: "#fb9d5c" },
-  css: { light: "#044abd", lightStrong: "#033e9f", dark: "#3b82f6", darkStrong: "#7faef9" },
-  javascript: { light: "#846401", lightStrong: "#654d01", dark: "#eab308", darkStrong: "#f9cc41" },
-  typescript: { light: "#17416f", lightStrong: "#123356", dark: "#3178c6", darkStrong: "#659cd9" },
-  nodejs: { light: "#107435", lightStrong: "#0c5a29", dark: "#22c55e", darkStrong: "#4ee084" },
-  mongodb: { light: "#077d56", lightStrong: "#066042", dark: "#10b981", darkStrong: "#24ecaa" },
-  aws: { light: "#8f5600", lightStrong: "#704300", dark: "#ff9900", darkStrong: "#ffb647" },
-  azure: { light: "#004b85", lightStrong: "#003a66", dark: "#0078d4", darkStrong: "#1c9dff" },
+  html: { light: "#9a3b04", lightStrong: "#7c3003", dark: "#f47125", darkStrong: "#f79d69" },
+  aws: { light: "#aa1824", lightStrong: "#8f141f", dark: "#e25a66", darkStrong: "#ed979e" },
+  javascript: { light: "#816803", lightStrong: "#635003", dark: "#f2c40d", darkStrong: "#f6d551" },
+  nodejs: { light: "#115f1e", lightStrong: "#0c4516", dark: "#28bd41", darkStrong: "#52da69" },
+  mongodb: { light: "#115f59", lightStrong: "#0c4541", dark: "#24a89d", darkStrong: "#3dd6c9" },
+  react: { light: "#106a8e", lightStrong: "#0d5673", dark: "#36b2e2", darkStrong: "#75caeb" },
+  css: { light: "#11409c", lightStrong: "#0e3481", dark: "#4479e4", darkStrong: "#82a6ed" },
+  azure: { light: "#5d27b9", lightStrong: "#5022a0", dark: "#a07cde", darkStrong: "#cab6ed" },
+  typescript: { light: "#9b278c", lightStrong: "#832176", dark: "#d369c5", darkStrong: "#e3a0da" },
 };
 
 /**
