@@ -4,7 +4,7 @@ import { getTopicsForSubject, getCategoriesForSubject, getSubjectById } from "..
 import { Badge } from "../../components/atoms/Badge/Badge";
 import { ProgressBar } from "../../components/atoms/ProgressBar/ProgressBar";
 import { useProgress } from "../../hooks/useProgress";
-import { stripInlineMarkup } from "../../utils/stripInlineMarkup";
+import { toCardSummary } from "../../utils/stripInlineMarkup";
 import styles from "./HomePage.module.css";
 
 export function HomePage() {
@@ -101,7 +101,7 @@ export function HomePage() {
                 {topic.category}
               </Badge>
               <h2 className={styles.cardTitle}>{topic.title}</h2>
-              <p className={styles.cardDescription}>{stripInlineMarkup(topic.shortExplanation)}</p>
+              <p className={styles.cardDescription}>{toCardSummary(topic.shortExplanation)}</p>
               <span className={styles.cardMeta}>
                 <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M9 6 4 12l5 6M15 6l5 6-5 6" />
