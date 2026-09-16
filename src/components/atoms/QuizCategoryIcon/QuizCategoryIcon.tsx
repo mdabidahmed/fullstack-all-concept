@@ -465,6 +465,12 @@ export function QuizCategoryIcon({ categoryId }: QuizCategoryIconProps) {
           <path d="M8 7.5 11 16M16 7.5 13 16M8.5 6h7" />
         </svg>
       );
+    case "aws-monitoring-messaging":
+      return (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M3 17h3l2-9 4 14 3-11 2 6h4" />
+        </svg>
+      );
     default:
       return null;
   }

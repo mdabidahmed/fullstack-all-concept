@@ -19,6 +19,11 @@ export const awsQuizCategoryMeta: QuizCategoryMeta[] = [
   {
     id: "aws-networking-deployment",
     title: "Networking & Deployment",
-    description: "VPCs, CloudFormation, and application deployment options.",
+    description: "VPCs, Route 53, CloudFront, CloudFormation, and application deployment options.",
+  },
+  {
+    id: "aws-monitoring-messaging",
+    title: "Monitoring & Messaging",
+    description: "CloudWatch metrics, logs, and alarms, plus decoupling with SNS and SQS.",
   },
 ];
