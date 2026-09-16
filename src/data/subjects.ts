@@ -7,6 +7,7 @@ import { tsTopics } from "./topics-ts";
 import { nodeTopics } from "./topics-node";
 import { mongodbTopics } from "./topics-mongodb";
 import { awsTopics } from "./topics-aws";
+import { azureTopics } from "./topics-azure";
 
 export interface SubjectMeta {
   id: string;
@@ -66,6 +67,12 @@ export const subjects: SubjectMeta[] = [
     tagline: "Cloud infrastructure",
     description: "Core services for compute, storage, and deployment.",
   },
+  {
+    id: "azure",
+    name: "Azure",
+    tagline: "Microsoft's cloud platform",
+    description: "Resource groups, virtual machines, storage, and identity on Azure.",
+  },
 ];
 
 export const topicsBySubject: Record<string, Topic[]> = {
@@ -77,6 +84,7 @@ export const topicsBySubject: Record<string, Topic[]> = {
   nodejs: nodeTopics,
   mongodb: mongodbTopics,
   aws: awsTopics,
+  azure: azureTopics,
 };
 
 export function getSubjectById(id: string | undefined): SubjectMeta | undefined {

@@ -8,6 +8,7 @@ export const subjectAccentColor: Record<string, string> = {
   nodejs: "#22c55e",
   mongodb: "#10b981",
   aws: "#ff9900",
+  azure: "#0078d4",
 };
 
 interface SubjectIconProps {
@@ -71,6 +72,13 @@ export function SubjectIcon({ subjectId }: SubjectIconProps) {
       return (
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <path d="M7 18a4 4 0 0 1-1-7.9 5 5 0 0 1 9.8-1.7A4.5 4.5 0 0 1 17 18H7Z" />
+        </svg>
+      );
+    case "azure":
+      return (
+        <svg viewBox="0 0 24 24" fill="currentColor" stroke="none">
+          <path d="M9.5 3h5.2L9.6 17.2l-6.4 1.6L9.5 3Z" />
+          <path d="M15.4 4.2 21 19H8.7l7.9-6.9-3.6-.4 2.4-7.5Z" />
         </svg>
       );
     default:
