@@ -124,7 +124,7 @@ export function Navbar({
         <ThemeToggle theme={theme} onChange={onThemeChange} />
         <a
           className={styles.repoLink}
-          href="https://github.com/mdabidahmed/react-all-concept"
+          href="https://github.com/mdabidahmed/fullstack-all-concept"
           target="_blank"
           rel="noreferrer"
         >
