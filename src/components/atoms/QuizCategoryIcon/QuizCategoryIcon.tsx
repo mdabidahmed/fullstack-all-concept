@@ -374,6 +374,65 @@ export function QuizCategoryIcon({ categoryId }: QuizCategoryIconProps) {
           <path d="M4 6v12c0 1.66 3.58 3 8 3s8-1.34 8-3V6M4 12c0 1.66 3.58 3 8 3s8-1.34 8-3" />
         </svg>
       );
+    case "mongodb-basics":
+      return (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M12 2c3 4 5 7.5 5 10.5a5 5 0 0 1-10 0C7 9.5 9 6 12 2Z" />
+          <path d="M12 15v6" />
+        </svg>
+      );
+    case "mongodb-create-read":
+      return (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <ellipse cx="12" cy="6" rx="8" ry="3" />
+          <path d="M4 6v12c0 1.66 3.58 3 8 3s8-1.34 8-3V6" />
+          <path d="M4 12c0 1.66 3.58 3 8 3s8-1.34 8-3" />
+        </svg>
+      );
+    case "mongodb-update-delete":
+      return (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <ellipse cx="12" cy="6" rx="8" ry="3" />
+          <path d="M4 6v12c0 1.66 3.58 3 8 3s8-1.34 8-3V6" />
+          <path d="M9 11l3 3 3-3" />
+        </svg>
+      );
+    case "mongodb-schema-design":
+      return (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <rect x="3" y="4" width="8" height="7" rx="1.5" />
+          <rect x="13" y="4" width="8" height="7" rx="1.5" />
+          <rect x="8" y="14" width="8" height="7" rx="1.5" />
+          <path d="M7 11v3M17 11v3" />
+        </svg>
+      );
+    case "mongodb-indexes-performance":
+      return (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M11 4a7 7 0 1 0 4.9 12l4.1 4M11 4a7 7 0 0 1 4.9 12" />
+          <path d="M11 8v3l2 2" />
+        </svg>
+      );
+    case "mongodb-aggregation":
+      return (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M4 5h5l6 14h5M4 19h5l2.5-5.8" />
+        </svg>
+      );
+    case "mongodb-mongoose-node":
+      return (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M12 2 20 6.5v11L12 22 4 17.5v-11Z" />
+          <path d="M12 12c2-3 4-2 4 0s-2 3-4 0Z" />
+        </svg>
+      );
+    case "mongodb-advanced-admin":
+      return (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
+          <path d="M19 12a7 7 0 0 0-.2-1.6l2-1.5-2-3.4-2.3.9a7 7 0 0 0-2.8-1.6L13.3 2h-2.6l-.4 2.8a7 7 0 0 0-2.8 1.6l-2.3-.9-2 3.4 2 1.5A7 7 0 0 0 5 12c0 .5 0 1.1.2 1.6l-2 1.5 2 3.4 2.3-.9a7 7 0 0 0 2.8 1.6l.4 2.8h2.6l.4-2.8a7 7 0 0 0 2.8-1.6l2.3.9 2-3.4-2-1.5c.1-.5.2-1.1.2-1.6Z" />
+        </svg>
+      );
     default:
       return null;
   }

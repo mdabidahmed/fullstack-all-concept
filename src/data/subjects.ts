@@ -5,6 +5,7 @@ import { cssTopics } from "./topics-css";
 import { jsTopics } from "./topics-js";
 import { tsTopics } from "./topics-ts";
 import { nodeTopics } from "./topics-node";
+import { mongodbTopics } from "./topics-mongodb";
 
 export interface SubjectMeta {
   id: string;
@@ -57,7 +58,6 @@ export const subjects: SubjectMeta[] = [
     name: "MongoDB",
     tagline: "A document database",
     description: "Collections, documents, queries, and aggregation.",
-    comingSoon: true,
   },
   {
     id: "aws",
@@ -75,6 +75,7 @@ export const topicsBySubject: Record<string, Topic[]> = {
   javascript: jsTopics,
   typescript: tsTopics,
   nodejs: nodeTopics,
+  mongodb: mongodbTopics,
 };
 
 export function getSubjectById(id: string | undefined): SubjectMeta | undefined {
