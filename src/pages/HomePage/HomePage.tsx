@@ -22,6 +22,12 @@ export function HomePage() {
     [activeCategory, topics],
   );
 
+  const countByCategory = useMemo(() => {
+    const counts = new Map<string, number>();
+    for (const topic of topics) counts.set(topic.category, (counts.get(topic.category) ?? 0) + 1);
+    return counts;
+  }, [topics]);
+
   return (
     <div className={styles.page}>
       <header className={styles.hero}>
@@ -65,7 +71,7 @@ export function HomePage() {
           className={[styles.chip, activeCategory === null ? styles.chipActive : ""].join(" ")}
           onClick={() => setActiveCategory(null)}
         >
-          All
+          All <span className={styles.chipCount}>{total}</span>
         </button>
         {categories.map((category) => (
           <button
@@ -74,7 +80,7 @@ export function HomePage() {
             className={[styles.chip, activeCategory === category ? styles.chipActive : ""].join(" ")}
             onClick={() => setActiveCategory(category)}
           >
-            {category}
+            {category} <span className={styles.chipCount}>{countByCategory.get(category) ?? 0}</span>
           </button>
         ))}
       </div>
@@ -91,10 +97,17 @@ export function HomePage() {
                   </svg>
                 </span>
               )}
-              <Badge tone="accent">{topic.category}</Badge>
+              <Badge tone="accent" className={styles.categoryBadge}>
+                {topic.category}
+              </Badge>
               <h2 className={styles.cardTitle}>{topic.title}</h2>
               <p className={styles.cardDescription}>{stripInlineMarkup(topic.shortExplanation)}</p>
-              <span className={styles.cardMeta}>{topic.examples.length} examples</span>
+              <span className={styles.cardMeta}>
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M9 6 4 12l5 6M15 6l5 6-5 6" />
+                </svg>
+                {topic.examples.length} examples
+              </span>
             </Link>
           );
         })}
