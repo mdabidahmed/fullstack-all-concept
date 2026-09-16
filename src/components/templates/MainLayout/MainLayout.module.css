@@ -4,21 +4,34 @@
   height: 100svh;
   /* Adopt this subject's accent pair (set as --subject-light/-dark inline by
      MainLayout) in place of the app-wide default teal accent. Falls back to
-     the inherited --accent/--accent-strong when no subject theme is set. */
+     the inherited --accent/--accent-strong when no subject theme is set.
+     --accent-bg/-border/-glow are re-derived here too, not just --accent -
+     index.css only defines them once at :root using color-mix(var(--accent)),
+     so without redeclaring them here they'd keep resolving against the root's
+     default teal instead of this subject's color. */
   --accent: var(--subject-light, var(--accent));
   --accent-strong: var(--subject-light-strong, var(--accent-strong));
+  --accent-bg: color-mix(in srgb, var(--accent) 10%, transparent);
+  --accent-border: color-mix(in srgb, var(--accent) 35%, transparent);
+  --accent-glow: 0 0 0 1px var(--accent-border), 0 4px 16px -4px color-mix(in srgb, var(--accent) 35%, transparent);
 }
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) .shell {
     --accent: var(--subject-dark, var(--accent));
     --accent-strong: var(--subject-dark-strong, var(--accent-strong));
+    --accent-bg: color-mix(in srgb, var(--accent) 15%, transparent);
+    --accent-border: color-mix(in srgb, var(--accent) 40%, transparent);
+    --accent-glow: 0 0 0 1px var(--accent-border), 0 4px 16px -4px color-mix(in srgb, var(--accent) 35%, transparent);
   }
 }
 
 :root[data-theme="dark"] .shell {
   --accent: var(--subject-dark, var(--accent));
   --accent-strong: var(--subject-dark-strong, var(--accent-strong));
+  --accent-bg: color-mix(in srgb, var(--accent) 15%, transparent);
+  --accent-border: color-mix(in srgb, var(--accent) 40%, transparent);
+  --accent-glow: 0 0 0 1px var(--accent-border), 0 4px 16px -4px color-mix(in srgb, var(--accent) 35%, transparent);
 }
 
 .body {
