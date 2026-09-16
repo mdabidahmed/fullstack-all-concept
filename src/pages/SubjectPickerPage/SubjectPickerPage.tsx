@@ -2,7 +2,6 @@ import type { CSSProperties } from "react";
 import { Link } from "react-router-dom";
 import { subjects, getTopicsForSubject } from "../../data/subjects";
 import { SubjectIcon, subjectAccentColor } from "../../components/atoms/SubjectIcon/SubjectIcon";
-import { ProgressBar } from "../../components/atoms/ProgressBar/ProgressBar";
 import { readStorage } from "../../utils/storage";
 import styles from "./SubjectPickerPage.module.css";
 
@@ -42,11 +41,13 @@ export function SubjectPickerPage() {
               <p className={styles.cardTagline}>{subject.tagline}</p>
               <p className={styles.cardDescription}>{subject.description}</p>
               {!subject.comingSoon && (
-                <div className={styles.progressRow}>
-                  <ProgressBar percent={percent} label={`${subject.name} progress`} />
-                  <span className={styles.cardMeta}>
-                    {completedCount > 0 ? `${completedCount}/${topicCount} topics · ${percent}%` : `${topicCount} topics`}
-                  </span>
+                <div className={styles.statsRow}>
+                  <span className={styles.cardMeta}>{topicCount} topics</span>
+                  {completedCount > 0 && (
+                    <span className={styles.percentChip} style={{ "--subject-accent": accentColor } as CSSProperties}>
+                      {completedCount}/{topicCount} · {percent}%
+                    </span>
+                  )}
                 </div>
               )}
               {!subject.comingSoon && (
