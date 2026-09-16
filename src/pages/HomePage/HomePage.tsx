@@ -4,6 +4,7 @@ import { getTopicsForSubject, getCategoriesForSubject, getSubjectById } from "..
 import { Badge } from "../../components/atoms/Badge/Badge";
 import { ProgressBar } from "../../components/atoms/ProgressBar/ProgressBar";
 import { useProgress } from "../../hooks/useProgress";
+import { stripInlineMarkup } from "../../utils/stripInlineMarkup";
 import styles from "./HomePage.module.css";
 
 export function HomePage() {
@@ -92,7 +93,7 @@ export function HomePage() {
               )}
               <Badge tone="accent">{topic.category}</Badge>
               <h2 className={styles.cardTitle}>{topic.title}</h2>
-              <p className={styles.cardDescription}>{topic.shortExplanation}</p>
+              <p className={styles.cardDescription}>{stripInlineMarkup(topic.shortExplanation)}</p>
               <span className={styles.cardMeta}>{topic.examples.length} examples</span>
             </Link>
           );
