@@ -2,6 +2,7 @@ import type { MouseEvent } from "react";
 import { Link, NavLink, useNavigate, useParams } from "react-router-dom";
 import { ThemeToggle } from "../../molecules/ThemeToggle/ThemeToggle";
 import { ProgressMenu } from "../../molecules/ProgressMenu/ProgressMenu";
+import { SubjectColorPicker } from "../../molecules/SubjectColorPicker/SubjectColorPicker";
 import { IconButton } from "../../atoms/IconButton/IconButton";
 import { useConfirm } from "../../../hooks/useConfirm";
 import { useQuizSession } from "../../../hooks/useQuizSession";
@@ -16,6 +17,8 @@ interface NavbarProps {
   onToggleSidebar: () => void;
   sidebarCollapsed: boolean;
   onToggleSidebarCollapse: () => void;
+  subjectColor: string | null;
+  onSubjectColorChange: (color: string | null) => void;
 }
 
 export function Navbar({
@@ -25,6 +28,8 @@ export function Navbar({
   onToggleSidebar,
   sidebarCollapsed,
   onToggleSidebarCollapse,
+  subjectColor,
+  onSubjectColorChange,
 }: NavbarProps) {
   const { subject } = useParams<{ subject: string }>();
   const subjectMeta = getSubjectById(subject);
@@ -115,6 +120,7 @@ export function Navbar({
           <span className={styles.quizText}>Quiz</span>
         </NavLink>
         <ProgressMenu />
+        <SubjectColorPicker color={subjectColor} onChange={onSubjectColorChange} />
         <ThemeToggle theme={theme} onChange={onThemeChange} />
         <a
           className={styles.repoLink}

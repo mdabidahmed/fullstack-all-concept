@@ -15,6 +15,7 @@ export function MainLayout() {
   const [paletteOpen, setPaletteOpen] = useState(false);
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
   const [sidebarCollapsed, setSidebarCollapsed] = useLocalStorage("rac:sidebar-collapsed", false);
+  const [subjectColor, setSubjectColor] = useLocalStorage<string | null>(`rac:subject-color:${subject}`, null);
   const location = useLocation();
 
   const [lastPathname, setLastPathname] = useState(location.pathname);
@@ -39,7 +40,7 @@ export function MainLayout() {
 
   return (
     <ProgressProvider subject={subject}>
-      <div className={styles.shell} style={subjectAccentVars(subject)}>
+      <div className={styles.shell} style={subjectAccentVars(subject, subjectColor)}>
         <a href="#main-content" className="skip-link">
           Skip to content
         </a>
@@ -50,6 +51,8 @@ export function MainLayout() {
           onToggleSidebar={() => setMobileNavOpen((open) => !open)}
           sidebarCollapsed={sidebarCollapsed}
           onToggleSidebarCollapse={() => setSidebarCollapsed((collapsed) => !collapsed)}
+          subjectColor={subjectColor}
+          onSubjectColorChange={setSubjectColor}
         />
         <div className={styles.body}>
           <Sidebar

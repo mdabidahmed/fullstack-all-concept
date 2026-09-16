@@ -24,6 +24,7 @@ export function SubjectPickerPage() {
             ? 0
             : readStorage<string[]>(`rac:completed-topics:${subject.id}`, []).length;
           const percent = topicCount === 0 ? 0 : Math.round((completedCount / topicCount) * 100);
+          const savedColor = readStorage<string | null>(`rac:subject-color:${subject.id}`, null);
 
           const card = (
             <>
@@ -60,12 +61,17 @@ export function SubjectPickerPage() {
             <div
               key={subject.id}
               className={[styles.card, styles.cardDisabled].join(" ")}
-              style={subjectAccentVars(subject.id)}
+              style={subjectAccentVars(subject.id, savedColor)}
             >
               {card}
             </div>
           ) : (
-            <Link key={subject.id} to={`/${subject.id}`} className={styles.card} style={subjectAccentVars(subject.id)}>
+            <Link
+              key={subject.id}
+              to={`/${subject.id}`}
+              className={styles.card}
+              style={subjectAccentVars(subject.id, savedColor)}
+            >
               {card}
             </Link>
           );
